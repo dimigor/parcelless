@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  parcelless:
+    build:
+      context: .
+    container_name: parcelless
+    volumes:
+      - ./parcelless:/home/app/parcelless
+    env_file:
+      - config/local/config.env
+    ports:
+      - "8080:8080"
+

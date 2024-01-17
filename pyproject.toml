@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "parcelless"
+version = "0.1.0"
+description = ""
+authors = ["gorbachevskyy"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.105"
+gunicorn = "^20.1.0"
+uvicorn = "^0.22.0"
+pydantic = {extras = ["email"], version = "^2.5.3"}
+pydantic-settings = "^2.0.3"
+httpx = "^0.26.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+ipython = "^8.17.2"
+pytest-asyncio = "^0.23.2"
+polyfactory = "^2.13.0"
+pytest-httpx = "^0.28.0"
+pytest-mock = "^3.12.0"
+fastapi-profiler = "^1.2.0"
+freezegun = "^1.4.0"
+ruff = "^0.1.13"
+
+
+[tool.ruff]
+exclude = [
+    ".git",
+    ".pyenv",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    "frontend",
+]
+line-length = 120
+indent-width = 4
+target-version = "py38"
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+unfixable = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+
+[tool.pytest.ini_options]
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+asyncio_mode = "auto"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
